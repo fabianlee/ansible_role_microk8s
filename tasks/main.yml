@@ -1,6 +1,9 @@
 ---
 - import_tasks: install.yml
 
+- name: system prereqs
+  include_tasks: prereq.yml
+
 - name: configure users
   include_tasks: configure-groups.yml
   when: "users is defined and users not in ([], None, '', omit)"
