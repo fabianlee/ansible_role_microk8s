@@ -1,8 +1,4 @@
 ---
-
-# prerequisites
-limit_nofile: 16000
-
 # defaults file for ansible_role_microk8s
 microk8s_version: "1.19/stable"
 
@@ -11,7 +7,7 @@ microk8s_plugin_rbac_enable: true
 microk8s_plugin_storage_enable: true
 microk8s_plugin_registry_enable: true
 microk8s_plugin_metricsserver_enable: true
-microk8s_plugin_helm3_enable: false
+microk8s_plugin_helm3_enable: true
 microk8s_plugin_ingress_enable: true
 microk8s_plugin_dashboard_enable: true
 microk8s_plugin_fluentd_enable: false
