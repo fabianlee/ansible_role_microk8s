@@ -8,7 +8,8 @@
 - name: check if microk8s installed
   shell: snap info microk8s | grep installed
   register: snap_installed
-  failed_when: not snap_installed.rc in [0,1]
+  ignore_errors: true
+  #failed_when: not snap_installed.rc in [0,1]
 
 #- meta: end_play
 
@@ -18,7 +19,8 @@
     name: microk8s
     classic: yes
     channel: "{{ microk8s_version }}"
-  when: "not 'installed' in snap_installed.stdout"
+  when: snap_installed.rc != 0
+  #when: "not 'installed' in snap_installed.stdout"
 
 - name: Wait for microk8s to be ready
   become: yes
